@@ -1,0 +1,14 @@
+.auth {
+	height: 100%;
+
+	.login {
+		.logo {
+			width: 100%;
+			max-width: 150px;
+
+			@include media-breakpoint-up(md) {
+				max-width: 375px;
+			}
+		}
+	}
+}
