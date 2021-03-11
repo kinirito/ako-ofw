@@ -10,15 +10,15 @@
 @endforeach
 
 
-<div class="row justify-content-start">
-    @if ($embed_code != null)
+<div class="row justify-content-start home">
+    @if ($streaming->is_broadcast)
         <div class="col-md">
             <h3 class="mb-4">
                 <strong>
                     {{ __('LIVE STREAMING TODAY') }}
                 </strong>
             </h3>
-            {{ $embed_code }}
+            {!! $streaming->embed_code !!}
         </div>
     @endif
     <div class="col-xl-auto">

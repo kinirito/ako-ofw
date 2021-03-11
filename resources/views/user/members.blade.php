@@ -42,7 +42,7 @@
         <form method="POST" action="{{ route('kumustahin.lahat') }}">
             @csrf
 
-            <button class="btn btn-primary form-control mb-2 mr-sm-2" type="submit">{{ __('Kumustahin Lahat') }}</button>
+            <button class="btn btn-primary mb-4 mt-2" type="submit">{{ __('Kumustahin Lahat') }}</button>
         </form>
         <ul class="list-group">
             @foreach ($users as $user)

@@ -113,8 +113,8 @@ class ProfileController extends Controller
             $image = Image::make($request->file('avatar'))->fit(400);
             $image->save($save_path);
             $user->avatar = $image_name;
-            $user->save();
         }
+        $user->save();
 
         if ($user != null) {
             return redirect()->route('profile')->with(session()->flash('alert-success', 'Changes to Profile saved successfully.'));

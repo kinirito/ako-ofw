@@ -44,6 +44,10 @@
 
                     @if (Auth::user()->is_admin)
 
+                        <a {{ Request::url() != route('facebook.streaming') ? 'href=' . route('facebook.streaming') : '' }} class="list-group-item list-group-item-action {{ Request::url() == route('facebook.streaming') ? 'active' : ''}}">
+                            <i class="icon-facebook"></i>{{ __(' Facebook Live') }}
+                        </a>
+
                         <a {{ Request::url() != route('members') ? 'href=' . route('members') : '' }} class="list-group-item list-group-item-action {{ Request::url() == route('members') ? 'active' : ''}}">
                             <i class="icon-home"></i>{{ __(' Members List') }}
                         </a>

@@ -41,7 +41,7 @@
 
             <span class="pb-2 d-block">
                 <strong>
-                    {{ __('Isulat ang Pangyayari:') }}
+                    {{ __('Isalaysay ang buong problema:') }}
                 </strong>
             </span>
             <div class="form-group row">

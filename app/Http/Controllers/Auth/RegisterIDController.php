@@ -44,17 +44,25 @@ class RegisterIDController extends Controller
             $id_card_front = Image::make(public_path() . '/images/assets/id_card_front.png');
             $avatar = Image::make(public_path() . '/images/avatars/' . $user->avatar)->fit(284, 332);
             $id_card_front->insert($avatar, 'top-left', 80, 169);
-            $id_card_front->text(strtoupper($user->first_name . ' ' . $user->last_name), 595, 350, function($font) {
+            
+            $name = explode('\n', wordwrap(strtoupper($user->first_name . ' ' . $user->last_name), 22, '\n'));
+            $y_position = 420 - (count($name, true) * 37);
+            foreach ($name as $name_line) {
+                $id_card_front->text($name_line, 595, $y_position, function($font) {
+                    $font->file(public_path() . '/fonts/calibri.ttf');
+                    $font->size(35);
+                    $font->color('#000000');
+                    $font->align('center');
+                    $font->valign('bottom');
+                    $font->angle(0);
+                });
+
+                $y_position += 37;
+            }
+            
+            $id_card_front->text(date('Y') . sprintf('%010d', $user->id), 595, 410, function($font) {
                 $font->file(public_path() . '/fonts/calibri.ttf');
-                $font->size(50);
-                $font->color('#000000');
-                $font->align('center');
-                $font->valign('center');
-                $font->angle(0);
-            });
-            $id_card_front->text(date('Y') . sprintf('%010d', $user->id), 595, 400, function($font) {
-                $font->file(public_path() . '/fonts/calibri.ttf');
-                $font->size(50);
+                $font->size(35);
                 $font->color('#000000');
                 $font->align('center');
                 $font->valign('center');

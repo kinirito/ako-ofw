@@ -30,6 +30,10 @@ Route::get('/profile', [App\Http\Controllers\User\ProfileController::class, 'ind
 Route::post('/profile', [App\Http\Controllers\User\ProfileController::class, 'updateProfile'])->name('update.profile');
 Route::post('/change-password', [App\Http\Controllers\User\ProfileController::class, 'changePassword'])->name('change.password');
 
+// Facebook Streaming
+Route::get('/facebook-streaming', [App\Http\Controllers\User\FacebookStreamingController::class, 'index'])->name('facebook.streaming');
+Route::post('/facebook-streaming', [App\Http\Controllers\User\FacebookStreamingController::class, 'updateFacebookStreaming'])->name('update.streaming');
+
 //Print ID
 Route::get('/print-id', [App\Http\Controllers\User\PrintIDController::class, 'index'])->name('print');
 
@@ -46,6 +50,7 @@ Route::post('/kumustahin-lahat', [App\Http\Controllers\User\MemberController::cl
 
 // Kumusta Kabayan
 Route::get('/kumusta-kabayan', [App\Http\Controllers\User\KumustaController::class, 'index'])->name('kumusta');
+Route::get('/kumusta-kabayan-report', [App\Http\Controllers\User\KumustaController::class, 'statusesReport'])->name('statuses.report');
 
 // Welcome Greetings
 Route::get('/welcome-greetings', [App\Http\Controllers\User\GreetingController::class, 'index'])->name('greetings');

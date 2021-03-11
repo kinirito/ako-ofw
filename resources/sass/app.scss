@@ -208,11 +208,46 @@ html {
 				}
 			}
 
+			.custom-switch {
+				.custom-control-input {
+					~ .custom-control-label {
+						&::before {
+							border-color: #1F25AF;
+							border-width: 3px;
+						}
+
+						&::after {
+							transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+						}
+					}
+
+					&:checked {
+						~ .custom-control-label {
+							&::before {
+								background-color: #1F25AF;
+							}
+						}
+					}
+					&:focus {
+						~ .custom-control-label {
+							&::before {
+								box-shadow: none;
+							}
+						}
+					}
+					
+				}
+			}
+
 			.custom-checkbox {
 				.custom-control-input {
 					~ .custom-control-label {
 						&::before {
 							border-color: #1F25AF;
+						}
+
+						&::after {
+							transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 						}
 					}
 

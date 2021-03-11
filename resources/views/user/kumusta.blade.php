@@ -15,7 +15,7 @@
                 {{ __('KUMUSTA! KABAYAN') }}
             </strong>
         </h3>
-        <form method="GET" action="{{ route('kumusta') }}">
+        <form method="GET">
             <div class="row no-gutters form-search">
                 <div class="col-md form-search form-group row no-gutters mb-0">
                     <input id="search" type="text" class="w-100 form-control @error('search') is-invalid @enderror  mb-2 mr-md-1" name="search" value="{{ $request->search }}" autocomplete="search" autofocus>
@@ -48,11 +48,11 @@
                     <input id="dateTo" type="text" class="col date-to form-control @error('date_to') is-invalid @enderror" name="date_to" value="{{ old('date_to', $request->date_to != null ? $request->date_to : '') }}" data-provide="datepicker" data-date-format="yyyy-mm-dd" onkeydown="return false" required autocomplete="dateTo">
                 </div>
                 <div class="col-md-auto row no-gutters">
-                    <button class="btn btn-secondary ml-md-1" type="submit">{{ __('Search') }}</button>
+                    <button class="btn btn-secondary ml-md-1" type="submit" formaction="{{ route('kumusta') }}">{{ __('Search') }}</button>
                 </div>
             </div>
+            <button class="btn btn-primary mb-4 mt-2" type="submit" formaction="{{ route('statuses.report') }}">{{ __('Generate Report') }}</button>
         </form>
-
         <ul class="list-group">
             @foreach ($statuses as $status)
                 <li class="list-group-item p-0">
@@ -76,11 +76,44 @@
                                         <strong>
                                             {{ $status->is_okay ? 'Mabuti' : 'Hindi Mabuti' }}
                                         </strong>
+
+                                    </span>
+                                </div>
+                                <div class="mb-1">
+                                    <span class="d-inline-block">
+                                        {{ date('F j, Y', strtotime($status->updated_at)) }}
                                     </span>
                                 </div>
                                 <div class="mb-0">
                                     <span class="d-inline-block">
-                                        {{ date('F j, Y', strtotime($status->updated_at)) }}
+                                        <strong>{{ __('Agency: ') }}</strong>
+                                    </span>
+                                    <span class="d-inline-block">
+                                        {{ $status->agency }}
+                                    </span>
+                                </div>
+                                <div class="mb-0">
+                                    <span class="d-inline-block">
+                                        <strong>{{ __('Occupation: ') }}</strong>
+                                    </span>
+                                    <span class="d-inline-block">
+                                        {{ $status->occupation }}
+                                    </span>
+                                </div>
+                                <div class="mb-0">
+                                    <span class="d-inline-block">
+                                        <strong>{{ __('Address (Abroad): ') }}</strong>
+                                    </span>
+                                    <span class="d-inline-block">
+                                        {{ $status->address }}
+                                    </span>
+                                </div>
+                                <div class="mb-0">
+                                    <span class="d-inline-block">
+                                        <strong>{{ __('Country: ') }}</strong>
+                                    </span>
+                                    <span class="d-inline-block">
+                                        {{ $status->country }}
                                     </span>
                                 </div>
                                 <div class="mb-0 row no-gutters justify-content-end">

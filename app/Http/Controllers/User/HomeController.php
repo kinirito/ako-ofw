@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Helpers\EmbedYoutubeLiveStreaming;
+use App\Models\FacebookStreaming;
 use App\Models\Greeting;
 use App\Models\Status;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,19 +35,21 @@ class HomeController extends Controller
         $user->is_first_login = false;
         $user->save();
 
+        $save_path = public_path() . '/images/ID/card_' . $user->id . '.jpg';
+        if (File::exists($save_path))
+        {
+            File::delete($save_path);
+        }
+
         $date_today_start = date('Y-m-d');
         $date_today_end = date('Y-m-d');
         $date_today_end = date('Y-m-d', strtotime($date_today_end . '+1 days'));
         
         $greetings = Greeting::whereBetween('display_date', [$date_today_start, $date_today_end])->get();
 
-        $channel_id = 'UCssxoAIGBTKypuwhNKRriZw';
-        $api_key = 'AIzaSyDE83HNk_q6TFw7XvgdAQLOGDkyclD2-y0';
-        $youtube_live = new EmbedYoutubeLiveStreaming($channel_id, $api_key);
+        $streaming = FacebookStreaming::first();
 
-        $embed_code = $youtube_live->isLive() ? $youtube_live->embedCode : null;
-
-        return view('user.home', compact('greetings', 'embed_code'));
+        return view('user.home', compact('greetings', 'streaming'));
     }
 
     /**

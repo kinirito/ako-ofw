@@ -10614,6 +10614,10 @@ h3 {
   content: "";
 }
 
+.icon-facebook:before {
+  content: "";
+}
+
 .icon-logout:before {
   content: "";
 }
@@ -10648,6 +10652,9 @@ h3 {
 }
 .user h3 {
   color: #1F25AF;
+}
+.user .home iframe {
+  width: 100%;
 }
 .user .form-search .form-control {
   padding-left: 12px;
@@ -11068,8 +11075,24 @@ html body .form-group .date-range .date-separator {
   background: #1F25AF;
   color: #FFFFFF;
 }
+html body .form-group .custom-switch .custom-control-input ~ .custom-control-label::before {
+  border-color: #1F25AF;
+  border-width: 3px;
+}
+html body .form-group .custom-switch .custom-control-input ~ .custom-control-label::after {
+  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+html body .form-group .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #1F25AF;
+}
+html body .form-group .custom-switch .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+}
 html body .form-group .custom-checkbox .custom-control-input ~ .custom-control-label::before {
   border-color: #1F25AF;
+}
+html body .form-group .custom-checkbox .custom-control-input ~ .custom-control-label::after {
+  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 html body .form-group .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #1F25AF;

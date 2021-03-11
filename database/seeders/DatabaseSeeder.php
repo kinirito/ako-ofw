@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
         	CountrySeeder::class,
         	UserSeeder::class,
-        	ReasonSeeder::class
+        	ReasonSeeder::class,
+            FacebookStreamingSeeder::class
         ]);
     }
 }
