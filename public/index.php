@@ -35,18 +35,6 @@ require __DIR__.'/../ako-ofw/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Use public_html as public_path()
-|--------------------------------------------------------------------------
-|
-| This is necessary to be able to load images for live production.
-|
-*/
-$app->bind('path.public', function() {
-    return __DIR__;
-});
-
-/*
-|--------------------------------------------------------------------------
 | Run The Application
 |--------------------------------------------------------------------------
 |
@@ -57,6 +45,18 @@ $app->bind('path.public', function() {
 */
 
 $app = require_once __DIR__.'/../ako-ofw/bootstrap/app.php';
+
+/*
+|--------------------------------------------------------------------------
+| Use public_html as public_path()
+|--------------------------------------------------------------------------
+|
+| This is necessary to be able to load images for live production.
+|
+*/
+$app->bind('path.public', function() {
+    return __DIR__;
+});
 
 $kernel = $app->make(Kernel::class);
 
