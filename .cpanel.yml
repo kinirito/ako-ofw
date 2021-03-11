@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/cxdbjpud/public_html/
+    - /bin/cp ./public/*.js $DEPLOYPATH
