@@ -40,16 +40,16 @@ class RegisterIDController extends Controller
         $user = Auth::user();
 
         if ($user != null) {
-            $save_path = public_path() . '/images/ID/card_' . $user->id . '.jpg';
-            $id_card_front = Image::make(public_path() . '/images/assets/id_card_front.png');
-            $avatar = Image::make(public_path() . '/images/avatars/' . $user->avatar)->fit(284, 332);
+            $save_path = '/images/ID/card_' . $user->id . '.jpg';
+            $id_card_front = Image::make('/images/assets/id_card_front.png');
+            $avatar = Image::make('/images/avatars/' . $user->avatar)->fit(284, 332);
             $id_card_front->insert($avatar, 'top-left', 80, 169);
             
             $name = explode('\n', wordwrap(strtoupper($user->first_name . ' ' . $user->last_name), 22, '\n'));
             $y_position = 420 - (count($name, true) * 37);
             foreach ($name as $name_line) {
                 $id_card_front->text($name_line, 595, $y_position, function($font) {
-                    $font->file(public_path() . '/fonts/calibri.ttf');
+                    $font->file('/fonts/calibri.ttf');
                     $font->size(35);
                     $font->color('#000000');
                     $font->align('center');
@@ -61,7 +61,7 @@ class RegisterIDController extends Controller
             }
             
             $id_card_front->text(date('Y') . sprintf('%010d', $user->id), 595, 410, function($font) {
-                $font->file(public_path() . '/fonts/calibri.ttf');
+                $font->file('/fonts/calibri.ttf');
                 $font->size(35);
                 $font->color('#000000');
                 $font->align('center');

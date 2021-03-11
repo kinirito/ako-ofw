@@ -102,7 +102,7 @@ class RegisterController extends Controller
         if ($user != null) {
             if ($request->hasFile('avatar')) {
                 $image_name = 'user_' . $user->id . '.jpg';
-                $save_path = public_path() . '/images/avatars/' . $image_name;
+                $save_path = '/images/avatars/' . $image_name;
                 if (File::exists($save_path))
                 {
                     File::delete($save_path);

@@ -90,7 +90,7 @@ class DiscountController extends Controller
         {
             if ($request->hasFile('add_logo')) {
                 $image_name = 'promo_' . $discount->id . '.jpg';
-                $save_path = public_path() . '/images/discounts/' . $image_name;
+                $save_path = '/images/discounts/' . $image_name;
                 if (File::exists($save_path))
                 {
                     File::delete($save_path);
@@ -123,10 +123,10 @@ class DiscountController extends Controller
         if ($request->hasFile('logo')) {
             if ($discount->logo != 'default_discount.jpg')
             {
-                File::delete(public_path() . '/images/discounts/' . $discount->logo);
+                File::delete('/images/discounts/' . $discount->logo);
             }
             $image_name = 'promo_' . $discount->id . '.jpg';
-            $save_path = public_path() . '/images/discounts/' . $image_name;
+            $save_path = '/images/discounts/' . $image_name;
             if (File::exists($save_path))
             {
                 File::delete($save_path);
@@ -159,7 +159,7 @@ class DiscountController extends Controller
         {
             if ($discount->logo != 'default_discount.jpg')
             {
-                File::delete(public_path() . '/images/discounts/' . $discount->logo);
+                File::delete('/images/discounts/' . $discount->logo);
             }
 
             $discount->delete();
