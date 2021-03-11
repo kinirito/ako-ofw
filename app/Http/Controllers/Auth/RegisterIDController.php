@@ -60,7 +60,7 @@ class RegisterIDController extends Controller
                 $y_position += 37;
             }
             
-            $id_card_front->text(date('Y') . sprintf('%010d', $user->id), 595, 410, function($font) {
+            $id_card_front->text(date('Y', strtotime($user->created_at)) . sprintf('%010d', $user->id), 595, 410, function($font) {
                 $font->file('fonts/calibri.ttf');
                 $font->size(35);
                 $font->color('#000000');
