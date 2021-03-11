@@ -167,7 +167,7 @@
     </div>
 </div>
 
-<x-kumustapopup />
+<x-kumusta-popup />
 
 @if ($errors->has('add_logo') || $errors->has('add_brand') || $errors->has('add_description'))
     <script type="application/javascript">

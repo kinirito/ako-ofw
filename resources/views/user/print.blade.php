@@ -33,6 +33,6 @@
     </div>
 </div>
 
-<x-kumustapopup />
+<x-kumusta-popup />
 
 @endsection

@@ -48,6 +48,6 @@
     </div>
 @endforeach
 
-<x-kumustapopup />
+<x-kumusta-popup />
 
 @endsection

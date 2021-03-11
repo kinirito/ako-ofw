@@ -282,7 +282,7 @@
     </div>
 </div>
 
-<x-kumustapopup />
+<x-kumusta-popup />
 
 @if ($errors->has('current_password') || $errors->has('new_password'))
     <script type="application/javascript">
