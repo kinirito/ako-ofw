@@ -87,7 +87,7 @@ class GreetingController extends Controller
         {
             if ($request->hasFile('add_greeting')) {
                 $image_name = 'greet_' . $greeting->id . '.jpg';
-                $save_path = '/images/greetings/' . $image_name;
+                $save_path = public_path() . '/images/greetings/' . $image_name;
                 if (File::exists($save_path))
                 {
                     File::delete($save_path);
@@ -119,10 +119,10 @@ class GreetingController extends Controller
         if ($request->hasFile('greeting')) {
             if ($greeting->greeting != 'default_greeting.png')
             {
-                File::delete('/images/greetings/' . $greeting->greeting);
+                File::delete(public_path() . '/images/greetings/' . $greeting->greeting);
             }
             $image_name = 'greet_' . $greeting->id . '.jpg';
-            $save_path = '/images/greetings/' . $image_name;
+            $save_path = public_path() . '/images/greetings/' . $image_name;
             if (File::exists($save_path))
             {
                 File::delete($save_path);
@@ -155,7 +155,7 @@ class GreetingController extends Controller
         {
             if ($greeting->greeting != 'default_greeting.png')
             {
-                File::delete('/images/greetings/' . $greeting->greeting);
+                File::delete(public_path() . '/images/greetings/' . $greeting->greeting);
             }
 
             $greeting->delete();
