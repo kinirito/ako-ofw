@@ -30,9 +30,9 @@ class PrintIDController extends Controller
     {
         $user = Auth::user();
 
-        $save_path = 'images/ID/card_' . $user->id . '.jpg';
-        $id_card_front = Image::make('images/assets/id_card_front.png');
-        $avatar = Image::make('images/avatars/' . $user->avatar)->fit(284, 332);
+        $save_path = public_path() . '/images/ID/card_' . $user->id . '.jpg';
+        $id_card_front = Image::make(public_path() . '/images/assets/id_card_front.png');
+        $avatar = Image::make(public_path() . '/images/avatars/' . $user->avatar)->fit(284, 332);
         $id_card_front->insert($avatar, 'top-left', 80, 169);
         
         $name = explode('\n', wordwrap(strtoupper($user->first_name . ' ' . $user->last_name), 22, '\n'));
