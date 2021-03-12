@@ -102,12 +102,14 @@ class ProfileController extends Controller
         if ($request->hasFile('avatar')) {
             if ($user->avatar != 'default_avatar.jpg')
             {
+                chmod(public_path() . '/images/avatars/' . $user->avatar, 777);
                 File::delete(public_path() . '/images/avatars/' . $user->avatar);
             }
             $image_name = 'user_' . $user->id . '.jpg';
             $save_path = public_path() . '/images/avatars/' . $image_name;
             if (File::exists($save_path))
             {
+                chmod($save_path, 777);
                 File::delete($save_path);
             }
             $image = Image::make($request->file('avatar'))->fit(400);
