@@ -1,5 +1,5 @@
 .user {
-	overflow-x: hidden;
+	overflow: hidden;
 
 	h3 {
 		color: #1F25AF;
@@ -260,6 +260,10 @@
 	        -o-transition: margin .25s ease-out;
 	        transition: margin .25s ease-out;
 
+	        @include media-breakpoint-down(sm) {
+        		margin-bottom: -120px;
+        	}
+
 	        .sidebar-heading {
 	        	padding: 30px;
 	        	text-align: center;
@@ -275,6 +279,7 @@
 	        .list-group {
 	        	width: 250px;
 	        	padding-left: 20px;
+	        	padding-bottom: 20px;
 
 	        	.list-group-item {
 	        		padding-top: 5px;
