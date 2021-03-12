@@ -101,12 +101,16 @@
                                 </div>
 
                                 <div class="form-group row no-gutters">
-                                    <button type="submit" class="btn btn-primary mr-1">
-                                        {{ __('Save') }}
-                                    </button>
-                                    <button type="button" class="btn btn-secondary ml-1" data-dismiss="modal">
-                                        {{ __('Cancel') }}
-                                    </button>
+                                    <div class="col-sm-auto">
+                                        <button type="submit" class="btn btn-primary mb-1 mb-sm-0 mr-sm-1">
+                                            {{ __('Save') }}
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <button type="button" class="btn btn-secondary mt-1 mt-sm-1 ml-sm-1" data-dismiss="modal">
+                                            {{ __('Cancel') }}
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

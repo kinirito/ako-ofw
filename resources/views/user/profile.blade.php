@@ -268,12 +268,12 @@
                         </div>
                     </div>
 
-                    <div class="form-group row mb-0">
+                    <div class="form-group row no-gutters mb-0">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary mr-1">
+                            <button type="submit" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0">
                                 {{ __('Submit') }}
                             </button>
-                            <button type="button" class="btn btn-secondary ml-1" data-dismiss="modal">
+                            <button type="button" class="btn btn-secondary ml-0 ml-sm-1 mt-1 mt-sm-0" data-dismiss="modal">
                                 {{ __('Cancel') }}
                             </button>
                         </div>
