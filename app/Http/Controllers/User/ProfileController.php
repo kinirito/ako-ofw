@@ -106,13 +106,13 @@ class ProfileController extends Controller
             }
             $image_name = 'user_' . $user->id . '.jpg';
             $save_path = public_path() . '/images/avatars/' . $image_name;
-            //if (File::exists($save_path))
-            //{
+            if (File::exists($save_path))
+            {
                 File::delete($save_path);
-            //}
+            }
             $image = Image::make($request->file('avatar'))->fit(400);
-            //$image->save($save_path);
-            //$user->avatar = $image_name;
+            $image->save($save_path);
+            $user->avatar = $image_name;
         }
         $user->save();
 
