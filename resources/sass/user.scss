@@ -234,9 +234,10 @@
 		&.toggled {
 			.sidebar-wrapper {
 				margin-left: 0;
+				margin-bottom: -120px;
 
-		        @include media-breakpoint-down(sm) {
-	        		margin-bottom: -120px;
+		        @include media-breakpoint-up(sm) {
+	        		margin-bottom: 0;
 	        	}
 			}
 
