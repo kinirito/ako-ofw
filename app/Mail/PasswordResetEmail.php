@@ -28,6 +28,6 @@ class PasswordResetEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('akoofwapp@gmail.com', 'AkoOFW')->subject('AkoOFW | Reset your Password')->view('mail.password-reset-email', ['email_data' => $this->email_data]);
+        return $this->from('support@ako-ofw.com', 'AkoOFW')->subject('AkoOFW | Reset your Password')->view('mail.password-reset-email', ['email_data' => $this->email_data]);
     }
 }
