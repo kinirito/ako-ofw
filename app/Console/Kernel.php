@@ -24,8 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //$schedule->command('weekly:kumusta')->weeklyOn(6, '01:00');
-        $schedule->command('weekly:kumusta')->everyMinute();
+        $schedule->command('weekly:kumusta')->weeklyOn(6, '01:45');
     }
 
     /**
