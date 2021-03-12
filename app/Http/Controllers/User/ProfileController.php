@@ -109,7 +109,7 @@ class ProfileController extends Controller
             $save_path = public_path() . '/images/avatars/' . $image_name;
             if (File::exists($save_path))
             {
-                chmod($save_path, 777);
+                dd(chmod($save_path, 777));
                 File::delete($save_path);
             }
             $image = Image::make($request->file('avatar'))->fit(400);
