@@ -107,7 +107,7 @@
                                         </button>
                                     </div>
                                     <div class="col-sm-auto">
-                                        <button type="button" class="btn btn-secondary mt-1 mt-sm-1 ml-sm-1" data-dismiss="modal">
+                                        <button type="button" class="btn btn-secondary mt-1 mt-sm-0 ml-sm-1" data-dismiss="modal">
                                             {{ __('Cancel') }}
                                         </button>
                                     </div>

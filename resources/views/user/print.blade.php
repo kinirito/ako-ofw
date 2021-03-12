@@ -22,17 +22,10 @@
                 <img src="{{ asset('/images/assets/id_card_back.png') }}" class="w-100">
             </div>
         </div>
-        <div class="my-5 row no-gutters">
-            <div class="col-sm-auto">
-                <button type="button" id="printButton" class="btn btn-primary mb-1 mb-sm-0 mr-sm-1">
-                    {{ __('Print') }}
-                </button>
-            </div>
-            <div class="col-sm-auto">
-                <a href="{{ route('home') }}" class="btn btn-secondary mt-1 mt-sm-0 ml-sm-1">
-                    {{ __('Proceed') }}
-                </a>
-            </div>
+        <div class="my-5 row">
+            <button type="button" id="printButton" class="btn btn-primary">
+                {{ __('Print') }}
+            </button>
         </div>
     </div>
 </div>
