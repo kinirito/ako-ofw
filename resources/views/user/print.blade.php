@@ -23,9 +23,11 @@
             </div>
         </div>
         <div class="my-5 row">
-            <button type="button" id="printButton" class="btn btn-primary">
-                {{ __('Print') }}
-            </button>
+            <div class="col-12">
+                <button type="button" id="printButton" class="btn btn-primary">
+                    {{ __('Print') }}
+                </button>
+            </div>
         </div>
     </div>
 </div>
