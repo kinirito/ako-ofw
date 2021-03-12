@@ -74,6 +74,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        File::link(storage_path('app/public'), public_path('storage'));
+
         $countries = Country::all();
 
         return view('user.profile', compact('countries'));
