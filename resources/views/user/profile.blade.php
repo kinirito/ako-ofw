@@ -23,7 +23,7 @@
                 <label for="avatar" class="col-md-4 col-form-label">{{ __('Profile Picture:') }}</label>
 
                 <div class="col-md-6 custom-upload-image">
-                    <img id="avatarDisplay" class="circle-image" src="{{ asset('/storage/images/avatars/' . Auth::user()->avatar) }}"/>
+                    <img id="avatarDisplay" class="circle-image" src="{{ url('storage/images/avatars/' . Auth::user()->avatar) }}"/>
                     <input id="avatar" type="file" accept="image/*" class="form-control @error('avatar') is-invalid @enderror" name="avatar" autofocus>
 
                     <span class="click-here">
