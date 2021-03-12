@@ -209,7 +209,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-0">
+            <div class="form-group row no-gutters mb-0">
                 <div class="col-sm-auto">
                     <button type="submit" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0">
                         {{ __('Save') }}
