@@ -7,7 +7,6 @@ use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
@@ -101,19 +100,18 @@ class ProfileController extends Controller
         $user->address = $request->address;
         $user->country_id = $request->country_id;
         if ($request->hasFile('avatar')) {
-            // if ($user->avatar != 'default_avatar.jpg')
-            // {
-            //     File::delete(public_path() . '/images/avatars/' . $user->avatar);
-            // }
+            if ($user->avatar != 'default_avatar.jpg')
+            {
+                File::delete(public_path() . '/images/avatars/' . $user->avatar);
+            }
             $image_name = 'user_' . $user->id . '.jpg';
-            // $save_path = public_path() . '/images/avatars/' . $image_name;
-            // if (File::exists($save_path))
-            // {
-            //     File::delete($save_path);
-            // }
+            $save_path = public_path() . '/images/avatars/' . $image_name;
+            if (File::exists($save_path))
+            {
+                File::delete($save_path);
+            }
             $image = Image::make($request->file('avatar'))->fit(400);
-            $image->stream();
-            Storage::disk('public')->put('images/avatars/' . $image_name, $image);
+            $image->save($save_path);
             $user->avatar = $image_name;
         }
         $user->save();
