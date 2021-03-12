@@ -211,12 +211,12 @@
 
             <div class="form-group row mb-0">
                 <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary mr-1 mb-1 mb-sm-0">
+                    <button type="submit" class="btn btn-primary mr-0 mr-sm-1 mb-1 mb-sm-0">
                         {{ __('Save') }}
                     </button>
                 </div>
                 <div class="col-sm-12">
-                    <button type="button" class="btn btn-secondary ml-1 mt-1 mt-sm-0" data-toggle="modal" data-target="#changePasswordModal" data-backdrop="static" data-keyboard="false">
+                    <button type="button" class="btn btn-secondary ml-0 ml-sm-1 mt-1 mt-sm-0" data-toggle="modal" data-target="#changePasswordModal" data-backdrop="static" data-keyboard="false">
                         {{ __('Change Password') }}
                     </button>
                 </div>
