@@ -100,7 +100,7 @@ class ProfileController extends Controller
         $user->address = $request->address;
         $user->country_id = $request->country_id;
         if ($request->hasFile('avatar')) {
-            if ($user->avatar != 'default_avatar.jpg')
+            if ($user->avatar != 'default_avatar.jpg' && File::exists(public_path() . '/images/avatars/' . $user->avatar))
             {
                 chmod(public_path() . '/images/avatars/' . $user->avatar, 777);
                 File::delete(public_path() . '/images/avatars/' . $user->avatar);
