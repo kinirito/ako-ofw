@@ -100,18 +100,19 @@ class ProfileController extends Controller
         $user->address = $request->address;
         $user->country_id = $request->country_id;
         if ($request->hasFile('avatar')) {
-            if ($user->avatar != 'default_avatar.jpg')
-            {
-                File::delete(public_path() . '/images/avatars/' . $user->avatar);
-            }
+            // if ($user->avatar != 'default_avatar.jpg')
+            // {
+            //     File::delete(public_path() . '/images/avatars/' . $user->avatar);
+            // }
             $image_name = 'user_' . $user->id . '.jpg';
-            $save_path = public_path() . '/images/avatars/' . $image_name;
-            if (File::exists($save_path))
-            {
-                File::delete($save_path);
-            }
+            // $save_path = public_path() . '/images/avatars/' . $image_name;
+            // if (File::exists($save_path))
+            // {
+            //     File::delete($save_path);
+            // }
             $image = Image::make($request->file('avatar'))->fit(400);
-            $image->save($save_path);
+            $image->stream();
+            Storage::disk('public')->put('images/avatars/' . $image_name, $image);
             $user->avatar = $image_name;
         }
         $user->save();
