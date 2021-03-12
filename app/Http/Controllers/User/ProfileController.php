@@ -111,8 +111,8 @@ class ProfileController extends Controller
                 File::delete($save_path);
             }
             $image = Image::make($request->file('avatar'))->fit(400);
-            $image->save($save_path);
-            $user->avatar = $image_name;
+            //$image->save($save_path);
+            //$user->avatar = $image_name;
         }
         $user->save();
 
