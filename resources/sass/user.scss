@@ -1,5 +1,5 @@
 .user {
-	overflow: hidden;
+	overflow-x: hidden;
 
 	h3 {
 		color: #1F25AF;
@@ -234,11 +234,6 @@
 		&.toggled {
 			.sidebar-wrapper {
 				margin-left: 0;
-				margin-bottom: -120px;
-
-		        @include media-breakpoint-up(sm) {
-	        		margin-bottom: 0;
-	        	}
 			}
 
 			.page-content-wrapper {
@@ -280,7 +275,7 @@
 	        .list-group {
 	        	width: 250px;
 	        	padding-left: 20px;
-	        	padding-bottom: 20px;
+	        	margin-bottom: 20px;
 
 	        	.list-group-item {
 	        		padding-top: 5px;
