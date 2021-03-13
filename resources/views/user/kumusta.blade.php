@@ -86,6 +86,14 @@
                                 </div>
                                 <div class="mb-0">
                                     <span class="d-inline-block">
+                                        <strong>{{ __('Contact Number: ') }}</strong>
+                                    </span>
+                                    <span class="d-inline-block">
+                                        {{ $status->contact }}
+                                    </span>
+                                </div>
+                                <div class="mb-0">
+                                    <span class="d-inline-block">
                                         <strong>{{ __('Agency: ') }}</strong>
                                     </span>
                                     <span class="d-inline-block">
