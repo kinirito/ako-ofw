@@ -92,14 +92,16 @@
                                         {{ $status->contact }}
                                     </span>
                                 </div>
-                                <div class="mb-0">
-                                    <span class="d-inline-block">
-                                        <strong>{{ __('Facebook URL: ') }}</strong>
-                                    </span>
-                                    <span class="d-inline-block">
-                                        {{ $status->facebook }}
-                                    </span>
-                                </div>
+                                @if ($status->facebook != null)
+                                    <div class="mb-0">
+                                        <span class="d-inline-block">
+                                            <strong>{{ __('Facebook URL: ') }}</strong>
+                                        </span>
+                                        <span class="d-inline-block">
+                                            {{ $status->facebook }}
+                                        </span>
+                                    </div>
+                                @endif
                                 <div class="mb-0">
                                     <span class="d-inline-block">
                                         <strong>{{ __('Agency: ') }}</strong>

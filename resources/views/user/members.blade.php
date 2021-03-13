@@ -86,14 +86,16 @@
                                         {{ $user->contact }}
                                     </span>
                                 </div>
-                                <div class="mb-0">
-                                    <span class="d-inline-block">
-                                        <strong>{{ __('Facebook URL: ') }}</strong>
-                                    </span>
-                                    <span class="d-inline-block">
-                                        {{ $user->facebook }}
-                                    </span>
-                                </div>
+                                @if ($user->facebook != null)
+                                    <div class="mb-0">
+                                        <span class="d-inline-block">
+                                            <strong>{{ __('Facebook URL: ') }}</strong>
+                                        </span>
+                                        <span class="d-inline-block">
+                                            {{ $user->facebook }}
+                                        </span>
+                                    </div>
+                                @endif
                                 <div class="mb-0">
                                     <span class="d-inline-block">
                                         <strong>{{ __('Agency: ') }}</strong>
