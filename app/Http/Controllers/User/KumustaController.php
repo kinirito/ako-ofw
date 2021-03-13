@@ -32,7 +32,7 @@ class KumustaController extends Controller
         $date_from = $request->date_from != null ? $request->date_from : date('Y-m-d');
         $date_to = $request->date_to != null ? $request->date_to : date('Y-m-d');
         $date_to = date('Y-m-d', strtotime($date_to . '+1 days'));
-        $select_case = ['statuses.id', 'statuses.scenario', 'statuses.is_okay', 'statuses.updated_at', 'statuses.user_id', 'users.avatar','users.last_name','users.first_name', 'users.middle_name', 'users.contact', 'users.agency', 'users.occupation', 'users.address', 'countries.country', 'statuses.reason_id', 'reasons.reason'];
+        $select_case = ['statuses.id', 'statuses.scenario', 'statuses.is_okay', 'statuses.updated_at', 'statuses.user_id', 'users.avatar','users.last_name','users.first_name', 'users.middle_name', 'users.contact', 'users.facebook', 'users.agency', 'users.occupation', 'users.address', 'countries.country', 'statuses.reason_id', 'reasons.reason'];
 
         switch ($request->status) {
             case 'Hindi Mabuti':

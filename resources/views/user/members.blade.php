@@ -88,6 +88,14 @@
                                 </div>
                                 <div class="mb-0">
                                     <span class="d-inline-block">
+                                        <strong>{{ __('Facebook URL: ') }}</strong>
+                                    </span>
+                                    <span class="d-inline-block">
+                                        {{ $user->facebook }}
+                                    </span>
+                                </div>
+                                <div class="mb-0">
+                                    <span class="d-inline-block">
                                         <strong>{{ __('Agency: ') }}</strong>
                                     </span>
                                     <span class="d-inline-block">

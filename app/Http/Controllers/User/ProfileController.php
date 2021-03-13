@@ -40,6 +40,7 @@ class ProfileController extends Controller
             'username' => ['unique:users,username,' . Auth::user()->id, 'required', 'string', 'max:255'],
             'birthdate' => ['required', 'date'],
             'contact' => ['required', 'string', 'max:255'],
+            'facebook' => ['nullable', 'regex:/^(https?:\/\/)?(www\.)?facebook.com\/[a-zA-Z0-9(\.\?)?]/', 'max:255'],
             'agency' => ['required', 'string', 'max:255'],
             'occupation' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
@@ -95,6 +96,7 @@ class ProfileController extends Controller
         $user->username = $request->username;
         $user->birthdate = $request->birthdate;
         $user->contact = $request->contact;
+        $user->facebook = $request->facebook;
         $user->agency = $request->agency;
         $user->occupation = $request->occupation;
         $user->address = $request->address;

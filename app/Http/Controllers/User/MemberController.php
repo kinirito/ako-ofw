@@ -28,11 +28,11 @@ class MemberController extends Controller
      */
     public function index(Request $request)
     {
-        $users = DB::table('users')->select('users.id', 'users.avatar', 'users.last_name', 'users.first_name', 'users.middle_name', 'users.username', 'users.email', 'users.birthdate', 'users.contact', 'users.agency', 'users.occupation', 'users.address', 'countries.country')->join('countries', 'users.country_id' , '=', 'countries.id')->where(['is_admin' => false])->orderBy('id', 'DESC')->paginate(10);
+        $users = DB::table('users')->select('users.id', 'users.avatar', 'users.last_name', 'users.first_name', 'users.middle_name', 'users.username', 'users.email', 'users.birthdate', 'users.contact', 'users.facebook', 'users.agency', 'users.occupation', 'users.address', 'countries.country')->join('countries', 'users.country_id' , '=', 'countries.id')->where(['is_admin' => false])->orderBy('id', 'DESC')->paginate(10);
 
         if ($request->search != null || $request->sorting != null)
         {
-            $users = DB::table('users')->select('users.id', 'users.avatar', 'users.last_name', 'users.first_name', 'users.middle_name', 'users.username', 'users.email', 'users.birthdate', 'users.contact', 'users.agency', 'users.occupation', 'users.address', 'countries.country')->join('countries', 'users.country_id' , '=', 'countries.id')->where(['is_admin' => false])->where(function ($query) use ($request) {
+            $users = DB::table('users')->select('users.id', 'users.avatar', 'users.last_name', 'users.first_name', 'users.middle_name', 'users.username', 'users.email', 'users.birthdate', 'users.contact', 'users.facebook', 'users.agency', 'users.occupation', 'users.address', 'countries.country')->join('countries', 'users.country_id' , '=', 'countries.id')->where(['is_admin' => false])->where(function ($query) use ($request) {
                 $query->where(DB::raw("CONCAT(`first_name`, ' ', `last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere(DB::raw("CONCAT(`first_name`, ' ', `middle_name`, ' ', `last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere('username', 'LIKE', '%' . $request->search . '%')->orWhere('email', 'LIKE', '%' . $request->search . '%')->orWhere('agency', 'LIKE', '%' . $request->search . '%')->orWhere('occupation', 'LIKE', '%' . $request->search . '%')->orWhere('address', 'LIKE', '%' . $request->search . '%');
             })->orderBy('id', $request->sorting)->paginate(10);
         }

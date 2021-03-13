@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->date('birthdate');
             $table->string('contact');
+            $table->string('facebook')->nullable();
             $table->string('agency');
             $table->string('occupation');
             $table->string('address');

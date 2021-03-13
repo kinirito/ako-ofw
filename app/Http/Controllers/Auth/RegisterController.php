@@ -66,10 +66,13 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'birthdate' => ['required', 'date'],
             'contact' => ['required', 'string', 'max:255'],
+            'facebook' => ['nullable', 'regex:/^(https?:\/\/)?(www\.)?facebook.com\/[a-zA-Z0-9(\.\?)?]/', 'max:255'],
             'agency' => ['required', 'string', 'max:255'],
             'occupation' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'country_id' => ['required', 'numeric', 'max:255']
+            'country_id' => ['required', 'numeric', 'max:255'],
+        ],[
+            'facebook' => 'You must use your active Facebook URL like (www.facebook.com/username)'
         ]);
     }
 
@@ -92,6 +95,7 @@ class RegisterController extends Controller
         $user->password = Hash::make($request->password);
         $user->birthdate = $request->birthdate;
         $user->contact = $request->contact;
+        $user->facebook = $request->facebook;
         $user->agency = $request->agency;
         $user->occupation = $request->occupation;
         $user->address = $request->address;

@@ -162,6 +162,20 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="facebook" class="col-md-4 col-form-label">{{ __('Facebook URL:') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="facebook" type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook') }}" placeholder="(OPTIONAL)" autocomplete="facebook">
+
+                        @error('facebook')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="agency" class="col-md-4 col-form-label">{{ __('Agency:') }}</label>
 
                     <div class="col-md-6">
