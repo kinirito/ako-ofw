@@ -14,12 +14,12 @@
                     <form method="POST" action="{{ route('mabuti.status') }}">
                         @csrf
                         
-                        <div class="form-group row my-4">
+                        <div class="form-group row my-3">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-secondary mx-1">
+                                <button type="submit" class="btn btn-secondary mx-1 my-1">
                                     {{ __('Mabuti') }}
                                 </button>
-                                <a href="{{ route('saklolo') }}" class="btn btn-primary mx-1">
+                                <a href="{{ route('saklolo') }}" class="btn btn-primary mx-1 my-1">
                                     {{ __('Hindi Mabuti') }}
                                 </a>
                             </div>

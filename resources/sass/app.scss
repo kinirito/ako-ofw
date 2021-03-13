@@ -29,6 +29,7 @@ html {
 		.pagination {
 			justify-content: center;
 			padding-top: 50px;
+			flex-wrap: wrap;
 
 			.page-item {
 				&:first-child, &:last-child {
