@@ -106,10 +106,10 @@
                             <div class="col-md align-self-center row no-gutters greeting-details">
                                 <input id="displayDate" type="text" class="col-md form-control greeting-date mr-sm-1" name="display_date" value="{{ $greeting->display_date != null ? $greeting->display_date : '' }}" data-provide="datepicker" data-date-format="yyyy-mm-dd" onkeydown="return false" form="editGreetingForm{{ $greeting->id }}" required autocomplete="displayDate" autofocus>
                                 <div class="col-md-auto greeting-buttons ml-md-1">
-                                    <button type="submit" name="greeting_id" value="{{ $greeting->id }}" class="btn btn-secondary mr-1 my-1" form="editGreetingForm{{ $greeting->id }}">
+                                    <button type="submit" name="greeting_id" value="{{ $greeting->id }}" class="btn btn-secondary mr-2 my-1" form="editGreetingForm{{ $greeting->id }}">
                                         {{ __('Edit') }}
                                     </button>
-                                    <button type="submit" name="greeting_id" value="{{ $greeting->id }}" class="btn btn-primary ml-1 my-1" form="deleteGreetingForm{{ $greeting->id }}" >
+                                    <button type="submit" name="greeting_id" value="{{ $greeting->id }}" class="btn btn-primary my-1" form="deleteGreetingForm{{ $greeting->id }}" >
                                         {{ __('Delete') }}
                                     </button>
                                 </div>
