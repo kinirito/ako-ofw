@@ -151,10 +151,10 @@
                                         @endif
                                     </div>
                                     @endif
-                                    <form method="POST" action="{{ route('kumustahin') }}" class="col-sm-auto row no-gutters justify-content-start">
+                                    <form method="POST" action="{{ route('kumustahin') }}" class="col-sm-auto row no-gutters justify-content-start mt-2 mt-sm-0 mr-sm-0">
                                         @csrf
                                         
-                                        <button type="submit" name="user_id" value="{{ $status->user_id }}" class="col-auto align-self-bottom btn btn-secondary mt-2">
+                                        <button type="submit" name="user_id" value="{{ $status->user_id }}" class="col-auto align-self-bottom btn btn-secondary mt-auto">
                                             {{ __('KUMUSTAHIN') }}
                                         </button>
                                     </form>
