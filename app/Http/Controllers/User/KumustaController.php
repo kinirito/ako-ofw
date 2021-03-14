@@ -40,11 +40,11 @@ class KumustaController extends Controller
                 {
                     $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->where(['statuses.is_okay' => false])->where(function ($query) use ($request) {
                         $query->where(DB::raw("CONCAT(`users`.`first_name`, ' ', `users`.`last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere(DB::raw("CONCAT(`users`.`first_name`, ' ', `users`.`middle_name`, ' ', `users`.`last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere('statuses.scenario', 'LIKE', '%' . $request->search . '%')->orWhere('reasons.reason', 'LIKE', '%' . $request->search . '%');
-                    })->whereBetween('statuses.updated_at', [$date_from, $date_to])->paginate(10);
+                    })->whereBetween('statuses.updated_at', [$date_from, $date_to])->orderBy('id', 'DESC')->paginate(10);
                 }
                 else
                 {
-                    $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->where(['statuses.is_okay' => false])->whereBetween('statuses.updated_at', [$date_from, $date_to])->paginate(10);
+                    $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->where(['statuses.is_okay' => false])->whereBetween('statuses.updated_at', [$date_from, $date_to])->orderBy('id', 'DESC')->paginate(10);
                 }
                 break;
             case 'Mabuti':
@@ -52,11 +52,11 @@ class KumustaController extends Controller
                 {
                     $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->where(['statuses.is_okay' => true])->where(function ($query) use ($request) {
                         $query->where(DB::raw("CONCAT(`users`.`first_name`, ' ', `users`.`last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere(DB::raw("CONCAT(`users`.`first_name`, ' ', `users`.`middle_name`, ' ', `users`.`last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere('statuses.scenario', 'LIKE', '%' . $request->search . '%')->orWhere('reasons.reason', 'LIKE', '%' . $request->search . '%');
-                    })->whereBetween('statuses.updated_at', [$date_from, $date_to])->paginate(10);
+                    })->whereBetween('statuses.updated_at', [$date_from, $date_to])->orderBy('id', 'DESC')->paginate(10);
                 }
                 else
                 {
-                    $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->where(['statuses.is_okay' => true])->whereBetween('statuses.updated_at', [$date_from, $date_to])->paginate(10);
+                    $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->where(['statuses.is_okay' => true])->whereBetween('statuses.updated_at', [$date_from, $date_to])->orderBy('id', 'DESC')->paginate(10);
                 }
                 break;
             default:
@@ -64,11 +64,11 @@ class KumustaController extends Controller
                 {
                     $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->where(function ($query) use ($request) {
                         $query->where(DB::raw("CONCAT(`users`.`first_name`, ' ', `users`.`last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere(DB::raw("CONCAT(`users`.`first_name`, ' ', `users`.`middle_name`, ' ', `users`.`last_name`)"), 'LIKE', '%' . $request->search . '%')->orWhere('statuses.scenario', 'LIKE', '%' . $request->search . '%')->orWhere('reasons.reason', 'LIKE', '%' . $request->search . '%');
-                    })->whereBetween('statuses.updated_at', [$date_from, $date_to])->paginate(10);
+                    })->whereBetween('statuses.updated_at', [$date_from, $date_to])->orderBy('id', 'DESC')->paginate(10);
                 }
                 else
                 {
-                    $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->whereBetween('statuses.updated_at', [$date_from, $date_to])->paginate(10);
+                    $statuses = DB::table('statuses')->select($select_case)->leftJoin('users','users.id','=','statuses.user_id')->leftJoin('reasons', 'reasons.id', '=', 'statuses.reason_id')->join('countries', 'users.country_id', '=', 'countries.id')->whereBetween('statuses.updated_at', [$date_from, $date_to])->orderBy('id', 'DESC')->paginate(10);
                 }
                 break;
         }
