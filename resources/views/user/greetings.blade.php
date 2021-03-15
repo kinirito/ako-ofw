@@ -8,6 +8,12 @@
         @endif
     </div>
 @endforeach
+
+@error('greeting')
+    <div class="flash-message">
+        <p class="alert alert-danger">{{ $message }}<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+    </div>
+@enderror
 <div class="row justify-content-start">
     <div class="col-12">
         <h3 class="mb-4">
@@ -44,7 +50,7 @@
 
                                 <div class="col-md-6 custom-upload-image">
                                     <img id="addGreetingDisplay" src="{{ asset('images/greetings/default_greeting.png') }}"/>
-                                    <input id="addGreeting" type="file" accept="image/*" class="form-control @error('add_greeting') is-invalid @enderror" name="add_greeting" required autofocus>
+                                    <input id="addGreeting" type="file" accept="image/*" class="form-control @error('add_greeting') is-invalid @enderror" name="add_greeting" autofocus>
 
                                     <span class="click-here">
                                         *Click the image above to upload logo*
@@ -65,6 +71,34 @@
                                     <input id="addDisplayDate" type="text" class="form-control @error('add_display_date') is-invalid @enderror" name="add_display_date" value="{{ old('add_display_date', $request->add_display_date != null ? $request->add_display_date : '') }}" data-provide="datepicker" data-date-format="yyyy-mm-dd" onkeydown="return false" required autocomplete="addDisplayDate" autofocus>
 
                                     @error('add_display_date')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="addTitle" class="col-md-4 col-form-label">{{ __('Title:') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="addTitle" type="text" class="form-control @error('add_title') is-invalid @enderror" name="add_title" value="{{ old('add_title', $request->add_title != null ? $request->add_title : '') }}" placeholder="(OPTIONAL)" autocomplete="addTitle" autofocus>
+
+                                    @error('add_title')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="addContent" class="col-md-4 col-form-label">{{ __('Content:') }}</label>
+
+                                <div class="col-md-6">
+                                    <textarea id="addContent" type="text" class="form-control @error('add_content') is-invalid @enderror" name="add_content" placeholder="(OPTIONAL)" autocomplete="addContent" autofocus>{{ old('add_content', $request->add_content != null ? $request->add_content : '') }}</textarea>
+
+                                    @error('add_content')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -96,15 +130,19 @@
                     <form method="POST" action="{{ route('delete.greeting') }}" id="deleteGreetingForm{{ $greeting->id }}">@csrf</form>
                     <div class="row no-gutters greeting-group p-3">
                         @csrf
-
-                        <div class="col-sm-auto greeting-image mb-2 mb-sm-0 pr-0 pr-sm-3">
+                        <div class="col-12 col-sm-auto greeting-image mb-2 mb-sm-0 pr-0 pr-sm-3">
                             <img src="{{ asset('images/greetings/' . $greeting->greeting) }}"/>
                             <input class="greeting-input" type="file" accept="image/*" class="form-control" name="greeting" form="editGreetingForm{{ $greeting->id }}" autofocus>
                         </div>
-
-                        <div class="col-sm row no-gutters">
-                            <div class="col-md align-self-center row no-gutters greeting-details">
-                                <input id="displayDate" type="text" class="col-md form-control greeting-date mr-sm-1" name="display_date" value="{{ $greeting->display_date != null ? $greeting->display_date : '' }}" data-provide="datepicker" data-date-format="yyyy-mm-dd" onkeydown="return false" form="editGreetingForm{{ $greeting->id }}" required autocomplete="displayDate" autofocus>
+                        <div class="col-12 col-sm greeting-details col row no-gutters mb-2 mb-sm-0 pr-0 pr-sm-3">
+                            <div class="col align-self-center">
+                                <input type="text" name="title" value="{{ $greeting->title }}" class="greeting-title" form="editDiscountForm{{ $greeting->title }}" required>
+                                <input type="text" class="greeting-date" name="display_date" value="{{ $greeting->display_date != null ? $greeting->display_date : '' }}" data-provide="datepicker" data-date-format="yyyy-mm-dd" onkeydown="return false" form="editGreetingForm{{ $greeting->id }}" required autocomplete="displayDate" autofocus>
+                                <textarea type="text" name="description" class="greeting-content" form="editDiscountForm{{ $greeting->id }}" required>{{ $greeting->content }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-auto row no-gutters">
+                            <div class="col-sm-auto align-self-end row no-gutters greeting-details">
                                 <div class="col-md-auto greeting-buttons ml-md-1">
                                     <button type="submit" name="greeting_id" value="{{ $greeting->id }}" class="btn btn-secondary mr-2 my-1" form="editGreetingForm{{ $greeting->id }}">
                                         {{ __('Edit') }}
@@ -127,5 +165,15 @@
 </div>
 
 <x-kumusta-popup />
+
+@error('add_greeting')
+    <script type="application/javascript">
+        setTimeout(function () {
+            $(document).ready(function() {
+                $('#addGreetingModal').modal('show');
+            });
+        }, 1);
+    </script>
+@enderror
 
 @endsection

@@ -41,7 +41,21 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <img src="{{ asset('images/greetings/' . $greeting->greeting) }}" class="w-100">
+                    @if ($greeting->greeting != 'default_greeting.png')
+                        <img src="{{ asset('images/greetings/' . $greeting->greeting) }}" class="w-100 {{ $greeting->title != null || $greeting->content != null ? 'mb-2' : '' }}">
+                    @endif
+                    @if ($greeting->title != null)
+                        <h4 class="text-center {{ $greeting->content != null ? 'mb-2' : '' }}">
+                            <strong>
+                                {{ $greeting->title }}
+                            </strong>
+                        </h4>
+                    @endif
+                    @if ($greeting->content != null)
+                    <p>
+                        {{ $greeting->content }}
+                    </p>
+                    @endif
                 </div>
             </div>
         </div>

@@ -32,8 +32,10 @@ class GreetingController extends Controller
     protected function addValidator(array $data)
     {
         return Validator::make($data, [
-            'add_greeting' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg' ,'max:2048'],            
-            'add_display_date' => ['required', 'date']
+            'add_greeting' => ['required_without_all:add_title,add_content', 'image', 'mimes:jpeg,png,jpg,gif,svg' ,'max:2048'],            
+            'add_display_date' => ['required', 'date'],
+            'add_title' => ['nullable', 'string', 'max:255'],
+            'add_content' => ['nullable', 'string']
         ]);
     }
 
@@ -46,8 +48,10 @@ class GreetingController extends Controller
     protected function editValidator(array $data)
     {
         return Validator::make($data, [
-            'greeting' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg' ,'max:2048'],            
-            'display_date' => ['required', 'date']
+            'greeting' => ['required_without_all:title,content', 'image', 'mimes:jpeg,png,jpg,gif,svg' ,'max:2048'],
+            'display_date' => ['required', 'date'],
+            'add_title' => ['nullable', 'string', 'max:255'],
+            'add_content' => ['nullable', 'string']
         ]);
     }
 
@@ -81,6 +85,14 @@ class GreetingController extends Controller
 
         $greeting = new Greeting();
         $greeting->display_date = $request->add_display_date;
+        if ($request->has('add_title'))
+        {
+            $greeting->title = $request->add_title;
+        }
+        if ($request->has('add_content'))
+        {
+            $greeting->content = $request->add_content;
+        }
         $greeting->save();
 
         if ($greeting != null)
@@ -116,6 +128,14 @@ class GreetingController extends Controller
 
         $greeting = Greeting::find($request->greeting_id);
         $greeting->display_date = $request->display_date;
+        if ($request->has('title'))
+        {
+            $greeting->title = $request->title;
+        }
+        if ($request->has('content'))
+        {
+            $greeting->content = $request->content;
+        }
         if ($request->hasFile('greeting')) {
             if ($greeting->greeting != 'default_greeting.png')
             {

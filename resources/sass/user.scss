@@ -121,7 +121,7 @@
 			}
 		}
 
-		.greeting-date {
+		.greeting-title {
 			font-size: 22px;
 			background-color: #E6E6E6;
 			padding: 0;
@@ -129,6 +129,16 @@
 			border: none;
 			margin-bottom: 3px;
 			font-weight: bold;
+			display: block;
+			width: 100%;
+		}
+
+		.greeting-date, .greeting-content {
+			font-synthesis: 14px;
+			background-color: #E6E6E6;
+			padding: 0;
+			border-radius: 0;
+			border: none;
 			display: block;
 			width: 100%;
 		}

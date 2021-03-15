@@ -17,6 +17,8 @@ class CreateGreetingsTable extends Migration
             $table->id();
             $table->date('display_date');
             $table->string('greeting')->default('default_greeting.png');
+            $table->string('title')->nullable();
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }
