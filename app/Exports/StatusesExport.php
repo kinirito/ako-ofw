@@ -6,6 +6,7 @@ use App\Models\Status;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -14,7 +15,7 @@ use Maatwebsite\Excel\Events\BeforeSheet;
 use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class StatusesExport implements FromQuery, WithHeadings, WithMapping, WithColumnWidths, WithEvents
+class StatusesExport implements FromQuery, WithHeadings, WithMapping, WithColumnWidths, WithColumnFormatting, WithEvents
 {
     use Exportable;
 
@@ -133,6 +134,16 @@ class StatusesExport implements FromQuery, WithHeadings, WithMapping, WithColumn
             'H' => 9,
             'I' => 14,
             'J' => 9
+        ];
+    }
+
+    /**
+     * Contact Format
+     */
+    public function columnFormats(): array
+    {
+        return [
+            'E' => NumberFormat::FORMAT_TEXT
         ];
     }
 
