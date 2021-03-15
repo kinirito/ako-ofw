@@ -129,12 +129,12 @@ class StatusesExport implements FromQuery, WithHeadings, WithMapping, WithColumn
             'B' => 12,
             'C' => 18,
             'D' => 18,
-            'E' => 9,
+            'E' => 12,
             'F' => 12,
             'G' => 8,
-            'H' => 9,
+            'H' => 8,
             'I' => 14,
-            'J' => 9
+            'J' => 8
         ];
     }
 
