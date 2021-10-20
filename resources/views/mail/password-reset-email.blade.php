@@ -141,7 +141,7 @@
                                     <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#D9332D"><a href="http://ako-ofw.test/password/reset/{{ $email_data['reset_password_token'] }}" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #D9332D; display: inline-block;">Reset Password</a></td>
+                                                <td align="center" style="border-radius: 3px;" bgcolor="#D9332D"><a href="http://www.ako-ofw.com/password/reset/{{ $email_data['reset_password_token'] }}" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #D9332D; display: inline-block;">Reset Password</a></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -156,7 +156,7 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;"><a href="#" target="_blank" style="color: #474DCA;">http://ako-ofw.test/password/reset/{{ $email_data['reset_password_token'] }}</a></p>
+                            <p style="margin: 0;"><a href="#" target="_blank" style="color: #474DCA;">http://www.ako-ofw.com/password/reset/{{ $email_data['reset_password_token'] }}</a></p>
                         </td>
                     </tr>
                     <tr>
